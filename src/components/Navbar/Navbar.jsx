@@ -18,7 +18,7 @@ const Navbar = () => {
             <div className="flex gap-4 items-center">
                 <div className="flex gap-2 items-center">
                   <img src={tour} alt="" className="w-10"/>
-                <h3 className="text-2xl font-bold">TOUR OF DREAMS</h3>
+                <h3 className="text-2xl font-bold text-[#31511E]">TOUR OF DREAMS</h3>
                 </div>
 
                 {/* for sm i want to show hamburger */}
@@ -40,16 +40,16 @@ const Navbar = () => {
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-black">
-                    <li><NavLink to="/" className={({ isActive }) => isActive? "text-yellow-500" : ""}>Home</NavLink></li>
-                    <li><NavLink to="/Community" className={({ isActive }) => isActive? "text-yellow-500" : ""}>Community</NavLink></li>
+                    <li><NavLink to="/" className={({ isActive }) => isActive? "text-[#859F3D]" : ""}>Home</NavLink></li>
+                    <li><NavLink to="/Community" className={({ isActive }) => isActive? "text-[#859F3D]" : ""}>Community</NavLink></li>
                     {/* {
                         user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
                     }
                     {
                         user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
                     } */}
-                    <li><NavLink to="/About-Us" className={({ isActive }) => isActive? "text-yellow-500" : ""}>About Us</NavLink></li>
-                    <li><NavLink to="/our-shop" className={({ isActive }) => isActive? "text-yellow-500" : ""}>Trips</NavLink></li>
+                    <li><NavLink to="/About-Us" className={({ isActive }) => isActive? "text-[#859F3D]" : ""}>About Us</NavLink></li>
+                    <li><NavLink to="/our-shop" className={({ isActive }) => isActive? "text-[#859F3D]" : ""}>Trips</NavLink></li>
                     {/* <li><NavLink to="/dashboard/cart" className={({ isActive }) => isActive? "text-yellow-500" : ""}>
                     <button className="btn">
                     <FaCartShopping />
@@ -63,16 +63,16 @@ const Navbar = () => {
             {/* Navigation Links */}
             <div className="hidden md:flex">
                 <ul className="flex gap-4">
-                <li><NavLink to="/" className={({ isActive }) => isActive? "text-yellow-500" : ""}>Home</NavLink></li>
-                    <li><NavLink to="/Community" className={({ isActive }) => isActive? "text-yellow-500" : ""}>Community</NavLink></li>
+                <li><NavLink to="/" className={({ isActive }) => isActive? "text-[#859F3D]" : ""}>Home</NavLink></li>
+                    <li><NavLink to="/Community" className={({ isActive }) => isActive? "text-[#859F3D]" : ""}>Community</NavLink></li>
                     {/* {
                         user && isAdmin && <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
                     }
                     {
                         user && !isAdmin && <li><Link to="/dashboard/userHome">Dashboard</Link></li>
                     } */}
-                    <li><NavLink to="/About-Us" className={({ isActive }) => isActive? "text-yellow-500" : ""}>About Us</NavLink></li>
-                    <li><NavLink to="/our-shop" className={({ isActive }) => isActive? "text-yellow-500" : ""}>Trips</NavLink></li>
+                    <li><NavLink to="/About-Us" className={({ isActive }) => isActive? "text-[#859F3D]" : ""}>About Us</NavLink></li>
+                    <li><NavLink to="/our-shop" className={({ isActive }) => isActive? "text-[#859F3D]" : ""}>Trips</NavLink></li>
                     {/* <li><NavLink to="/dashboard/cart" className={({ isActive }) => isActive? "text-yellow-500" : ""}>
                     <button className="btn">
                     <FaCartShopping />
@@ -86,7 +86,7 @@ const Navbar = () => {
               
                 {user?.email ? (
                   // Show dropdown with avatar and options if the user is logged in
-                  <div className="dropdown dropdown-end">
+                  <div className="dropdown dropdown-end text-black">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                       <div className="w-10 rounded-full">
                         <img
@@ -97,8 +97,9 @@ const Navbar = () => {
                     </div>
                     <ul
                       tabIndex={0}
-                      className="menu menu-sm dropdown-content bg-[#c5e1e8] dark:bg-[#1d232a] rounded-box z-[100] mt-3 w-52 p-2 shadow">
-                        {/* <h3>{user.name}</h3> */}
+                      className="text-center menu menu-sm dropdown-content bg-[#F6FCDF] rounded-box z-[100] mt-3 w-52 p-2 shadow">
+                        <p>{user.email}</p>
+                        <h3>{user.displayName? user.displayName : "No name"}</h3>
               
                         {/* pages */}
                         <li>
@@ -106,8 +107,8 @@ const Navbar = () => {
                         to="/Dashboard"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black dark:text-blue-300"
-                            : "text-white dark:text-gray-300"
+                            ? "text-[#859F3D]"
+                            : "text-black"
                           }>
                          Dashboard
                        </NavLink>
@@ -118,8 +119,8 @@ const Navbar = () => {
                         to="/liked-artifacts"
                         className={({ isActive }) =>
                           isActive
-                            ? "text-black dark:text-blue-300"
-                            : "text-white dark:text-gray-300"
+                            ? "text-[#859F3D]"
+                            : "text-black"
                           }>
                         Liked Artifacts
                        </NavLink>
@@ -131,7 +132,7 @@ const Navbar = () => {
                         </NavLink>
                       </li> */}
                       <li>
-                        <button onClick={handleLogout} className="mt-3 w-full p-2 bg-[#3d8396e0]  rounded-md hover:bg-[#357283e0] text-black">Logout</button>
+                        <button onClick={handleLogout} className="mt-3 w-full p-2 bg-[#859F3D]  rounded-md hover:bg-[#758c35] text-black">Logout</button>
                       </li>
                     </ul>
                     </div>
