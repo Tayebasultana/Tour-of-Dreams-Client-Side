@@ -2,28 +2,28 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className=" py-10 px-5">
+        <footer className=" py-10 px-5 bg-[#1A1A19]">
         <div className="max-w-7xl mx-auto">
 
             <div className="flex justify-between">
                 {/* logo and name */}
                 <div>
-                    <h2>TOUR OF DREAMS</h2>
+                    <h2 className="text-2xl font-bold text-white mb-4">TOUR OF DREAMS</h2>
                 </div>
                 <div>
                   {/* Social Media Links */}
                   <div className="flex justify-center gap-4">
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                      <FaFacebook className="text-2xl text-black hover:text-blue-400" />
+                      <FaFacebook className="text-2xl text-blue-400" />
                     </a>
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                      <FaTwitter className="text-2xl text-black hover:text-blue-200" />
+                      <FaTwitter className="text-2xl text-blue-200" />
                     </a>
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                      <FaInstagram className="text-2xl text-black hover:text-pink-400" />
+                      <FaInstagram className="text-2xl text-pink-400" />
                     </a>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                      <FaLinkedin className="text-2xl text-black hover:text-blue-500" />
+                      <FaLinkedin className="text-2xl text-blue-500" />
                     </a>
                   </div>
                 </div>
@@ -57,7 +57,7 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className="mt-3 w-full p-2 bg-[#0A7075] text-white rounded-md hover:bg-[#0a7075e0]"
+                className="mt-3 w-full p-2 bg-[#859F3D] text-white rounded-md hover:bg-[#758d36]"
               >
                 Subscribe
               </button>
