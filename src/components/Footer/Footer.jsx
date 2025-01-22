@@ -2,7 +2,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className=" py-10 px-5 bg-[#1A1A19]">
+        <footer className=" py-10 px-5 bg-[#1A1A19] text-gray-300">
         <div className="max-w-7xl mx-auto">
 
             <div className="flex justify-between">
@@ -29,7 +29,7 @@ const Footer = () => {
                 </div>
             </div>
 
-          <div className="flex justify-between">
+          <div className="flex flex-wrap gap-4 justify-between">
             {/* Contact Information */}
           <div>
             <h3 className="text-xl font-bold text-white mb-4">Contact Us</h3>

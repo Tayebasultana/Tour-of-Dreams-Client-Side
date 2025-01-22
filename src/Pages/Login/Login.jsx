@@ -5,7 +5,8 @@ import { authContext } from "../../components/AuthProvider/AuthProvider";
 // import loginImg from "../../assets/3094352.jpg";
 import backgroundImg from "../../assets/abstract-blue-geometric-shapes-background.jpg";
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
-// import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+
 
 
 const Login = () => {
@@ -14,7 +15,7 @@ const Login = () => {
   const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-//   const axiosPublic = useAxiosPublic();
+  const axiosPublic = useAxiosPublic();
 
   useEffect(() => {
     loadCaptchaEnginge(6); 
@@ -53,7 +54,7 @@ const Login = () => {
     .then((result) => {
       const userInfo = {
         email: result.user?.email,
-        name: result.user?.displayName
+        name: result.user?.displayName,
     }
     axiosPublic.post('/users', userInfo)
     .then(res =>{
