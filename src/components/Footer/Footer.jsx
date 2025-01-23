@@ -13,7 +13,7 @@ const Footer = () => {
                 <div>
                   {/* Social Media Links */}
                   <div className="flex justify-center gap-4">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/share/19yRS2MJmR/" target="_blank" rel="noopener noreferrer">
                       <FaFacebook className="text-2xl text-blue-400" />
                     </a>
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
