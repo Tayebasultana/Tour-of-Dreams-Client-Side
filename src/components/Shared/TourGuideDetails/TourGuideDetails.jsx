@@ -10,7 +10,7 @@ const TourGuideDetails = () => {
     useEffect(() => {
         const fetchGuide = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/tourGuides/${id}`);
+                const response = await axios.get(`https://tour-of-dreams-server-side.vercel.app/tourGuides/${id}`);
                 setGuide(response.data);
             } catch (error) {
                 console.error('Error fetching the guide details:', error);

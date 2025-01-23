@@ -16,7 +16,7 @@ const Testimonial = () => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await fetch("http://localhost:5000/review");
+                const response = await fetch("https://tour-of-dreams-server-side.vercel.app/review");
                 const data = await response.json();
                 setReviews(data); 
                 setLoading(false); 

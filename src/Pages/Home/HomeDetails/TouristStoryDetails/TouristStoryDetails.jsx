@@ -11,7 +11,7 @@ const TouristStoryDetails = () => {
     useEffect(() => {
         const fetchStory = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/story/${id}`);
+                const response = await axios.get(`https://tour-of-dreams-server-side.vercel.app/story/${id}`);
                 setStory(response.data);
             } catch (error) {
                 console.error('Error fetching the story details:', error);

@@ -12,7 +12,7 @@ const PackageDetails = () => {
     useEffect(() => {
         const fetchPackages = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/package/${id}`);
+                const response = await axios.get(`https://tour-of-dreams-server-side.vercel.app/package/${id}`);
                 setPackage(response.data);
             } catch (error) {
                 console.error('Error fetching the story details:', error);
@@ -55,14 +55,17 @@ const PackageDetails = () => {
             {/* FAQ Section - Dynamic Itinerary */}
             <div className="faq-section">
               <h2 className="faq-title">Trip Itinerary</h2>
-      
+            
               {packages.itinerary && packages.itinerary.map((item, index) => (
-                <div key={index} className="faq-item">
-                  <h3 className="faq-question">Day {item.day}: {item.destination}</h3>
-                  <p className="faq-answer">{item.activity}</p>
-                </div>
+                item.day && item.destination && item.activity ? ( 
+                  <div key={index} className="faq-item">
+                    <h3 className="faq-question">Day {item.day}: {item.destination}</h3>
+                    <p className="faq-answer">{item.activity}</p>
+                  </div>
+                ) : null 
               ))}
-             </div>
+            </div>
+
 
              <div>
                 <TourGuide></TourGuide>

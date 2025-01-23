@@ -11,7 +11,7 @@ const AllPackage = () => {
     useEffect(() => {
         const fetchRandomPackages = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/packages');
+                const response = await axios.get('https://tour-of-dreams-server-side.vercel.app/packages');
                 setPackages(response.data); 
             } catch (error) {
                 console.error('Error fetching packages:', error);

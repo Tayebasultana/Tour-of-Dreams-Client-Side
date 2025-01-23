@@ -15,7 +15,7 @@ const StoryUpdate = () => {
         // Fetching story details by id
         const fetchStory = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/dashboard/story/${id}`);
+                const response = await axios.get(`https://tour-of-dreams-server-side.vercel.app/dashboard/story/${id}`);
                 setStory(response.data);
                 setUpdatedStory(response.data); 
             } catch (error) {
@@ -37,7 +37,7 @@ const StoryUpdate = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.patch(`http://localhost:5000/dashboard/story-update/${id}`, updatedStory);
+            const response = await axios.patch(`https://tour-of-dreams-server-side.vercel.app/dashboard/story-update/${id}`, updatedStory);
             if (response.status === 200) {
                 Swal.fire({
                     title: "Updated!",

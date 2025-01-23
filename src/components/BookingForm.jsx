@@ -33,7 +33,7 @@ const BookingForm = () => {
 
   useEffect(() => {
     // Fetch tour guides
-    axios.get('http://localhost:5000/tourGuides')
+    axios.get('https://tour-of-dreams-server-side.vercel.app/tourGuides')
       .then((response) => {
         setTourGuides(response.data);
       })
@@ -43,7 +43,7 @@ const BookingForm = () => {
       });
 
     // Fetch tour package data
-    axios.get(`http://localhost:5000/package/${id}`)
+    axios.get(`https://tour-of-dreams-server-side.vercel.app/package/${id}`)
       .then((response) => {
         setTourPackage(response.data);
         setPrice(response.data.price);
@@ -74,7 +74,7 @@ const BookingForm = () => {
     };
 
     // Submit the booking to backend
-    axios.post('http://localhost:5000/bookings', bookingData)
+    axios.post('https://tour-of-dreams-server-side.vercel.app/bookings', bookingData)
       .then((response) => {
         console.log('Booking successful:', response);
         setModalOpen(true); // Open the confirmation modal

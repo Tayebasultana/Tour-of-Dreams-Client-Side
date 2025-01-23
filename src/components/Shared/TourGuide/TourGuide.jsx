@@ -9,7 +9,7 @@ const TourGuide = () => {
 
   useEffect(() => {
     // Fetch the tour guides from the backend
-    axios.get('http://localhost:5000/tourGuides')
+    axios.get('https://tour-of-dreams-server-side.vercel.app/tourGuides')
       .then((response) => {
         setTourGuides(response.data);
         setLoading(false);

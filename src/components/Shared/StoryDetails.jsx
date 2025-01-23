@@ -13,7 +13,7 @@ const StoryDetails = () => {
     useEffect(() => {
         const fetchStory = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/dashboard/story/${id}`);
+                const response = await axios.get(`https://tour-of-dreams-server-side.vercel.app/dashboard/story/${id}`);
                 setStory(response.data);
             } catch (error) {
                 console.error('Error fetching the story details:', error);
@@ -39,7 +39,7 @@ const StoryDetails = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/story/${_id}`, {
+                fetch(`https://tour-of-dreams-server-side.vercel.app/story/${_id}`, {
                     method: 'DELETE'
                 })
                 

@@ -109,7 +109,7 @@ const MyAssignedTour = () => {
                                        </button>
                                    )}
                                </div>
-                               {tour.status === 'accepted' || tour.status === 'rejected' ? (
+                               {tour.status === 'accepted' || tour.status === 'rejected' || tour.status === 'in-review' ? (
                                     <div>
                                         <button className="btn bg-red-500 text-white" disabled>
                                             Reject

@@ -12,7 +12,7 @@ const StoryCard = () => {
     useEffect(() => {
         if (user && user.email) {
             // console.log("User email: ", user.email); 
-            fetch(`http://localhost:5000/dashboard/stories/${user?.email}`)
+            fetch(`https://tour-of-dreams-server-side.vercel.app/dashboard/stories/${user?.email}`)
                 .then((res) => res.json())
                 .then((data) => {
                     setStories(data); 
