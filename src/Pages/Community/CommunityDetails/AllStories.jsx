@@ -8,6 +8,9 @@ const AllStories = () => {
     const axiosPublic = useAxiosPublic();
     const [stories, setStories] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);  
+    const [storiesPerPage] = useState(6);  
+
     useEffect(() => {
             axiosPublic.get('/stories')
                 .then(response => {
@@ -24,13 +27,19 @@ const AllStories = () => {
         return <div>Loading stories...</div>;
     }
 
+    const indexOfLastStory = currentPage * storiesPerPage;
+    const indexOfFirstStory = indexOfLastStory - storiesPerPage;
+    const currentStories = stories.slice(indexOfFirstStory, indexOfLastStory);
+
+    // Pagination Controls
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div className="w-11/12 mx-auto py-20">
             <h3 className="text-3xl mb-4 text-center">All Tour Packages</h3>
            <div className="stories-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Stories Mapping */}
-                {stories.map((story) => (
+                {currentStories.map((story) => (
                     <div key={story._id} className="card bg-base-100  shadow-xl">
                         <figure>
                             <img
@@ -58,7 +67,22 @@ const AllStories = () => {
                         </div>
                     </div>
                 ))}
+           </div>
+
+           {/* Pagination Controls */}
+           <div className="pagination mt-6 flex justify-center">
+                {Array.from({ length: Math.ceil(stories.length / storiesPerPage) }, (_, index) => (
+                    <button
+                        key={index + 1}
+                        onClick={() => paginate(index + 1)}
+                        className={`px-4 py-2 mx-2 border rounded ${currentPage === index + 1 ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+                    >
+                        {index + 1}
+                    </button>
+                ))}
             </div>
+
+
         </div>
     );
 };

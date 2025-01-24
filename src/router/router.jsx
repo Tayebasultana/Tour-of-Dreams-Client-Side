@@ -26,6 +26,9 @@ import MyAssignedTour from "../Pages/Dashboard/TourGuideDashboard/MyAssignedTour
 import Payment from "../Pages/Dashboard/UserDashboad/Payment/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/UserDashboad/Payment/PaymentHistry/PaymentHistory";
 import UpdateProfile from "../components/Shared/UpdateProfile/UpdateProfile";
+import GuideRoute from "./GuideRoute";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivetRoute";
 
 
 
@@ -40,15 +43,15 @@ import UpdateProfile from "../components/Shared/UpdateProfile/UpdateProfile";
         },
         {
           path:"/package/:id",
-          element:<PackageDetails></PackageDetails>
+          element:<PrivateRoute><PackageDetails></PackageDetails></PrivateRoute>
         },
         {
           path:"/tourGuides/:id",
-          element:<TourGuideDetails></TourGuideDetails>
+          element:<PrivateRoute><TourGuideDetails></TourGuideDetails></PrivateRoute>
         },
         {
           path:"/story/:id",
-          element:<TouristStoryDetails></TouristStoryDetails>
+          element:<PrivateRoute><TouristStoryDetails></TouristStoryDetails></PrivateRoute>
         },
         {
           path:"/community",
@@ -87,7 +90,7 @@ import UpdateProfile from "../components/Shared/UpdateProfile/UpdateProfile";
       },
       {
         path:"addStory",
-        element:<AddStory></AddStory>
+        element:<PrivateRoute><AddStory></AddStory></PrivateRoute>
       },
       {
        path:"story/:id",
@@ -120,28 +123,28 @@ import UpdateProfile from "../components/Shared/UpdateProfile/UpdateProfile";
       // tourGuide
       {
         path:"tourGuideProfile",
-        element:<TourGuideProfile></TourGuideProfile>
+        element:<GuideRoute><TourGuideProfile></TourGuideProfile></GuideRoute>
       },
       {
         path:"my-assigned-tour",
-        element:<MyAssignedTour></MyAssignedTour>
+        element:<GuideRoute><MyAssignedTour></MyAssignedTour></GuideRoute>
       },
       // admin
       {
         path:"adminProfile",
-        element:<AdminProfile></AdminProfile>
+        element:<AdminRoute><AdminProfile></AdminProfile></AdminRoute>
       },
       {
         path:"packageForm",
-        element:<PackageForm></PackageForm>
+        element:<AdminRoute><PackageForm></PackageForm></AdminRoute>
       },
       {
         path:"users",
-        element:<ManageUsers></ManageUsers>
+        element:<AdminRoute><ManageUsers></ManageUsers></AdminRoute>
       },
       {
         path:"manageCandidates",
-        element:<ManageCandidates></ManageCandidates>
+        element:<AdminRoute><ManageCandidates></ManageCandidates></AdminRoute>
       }
     ]
    }

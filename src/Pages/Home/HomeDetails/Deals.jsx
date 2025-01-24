@@ -10,7 +10,7 @@ const Deals = () => {
            
 
             {/* Deals Section */}
-            <section className="deals-section my-16 px-4 bg-[#F6FCDF] py-10 ">
+            <section className="deals-section mb-16 px-4 bg-[#F6FCDF] py-10 ">
                 <h2 className="text-3xl text-center mb-10 font-semibold text-[#31511E]">Special Offers and Deals</h2>
                 <div className="deals-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Deal 1 */}

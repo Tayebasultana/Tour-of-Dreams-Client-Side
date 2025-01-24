@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 
 
-const AdminRoute = () => {
+const AdminRoute = ({children}) => {
     const { user, isLoading: authLoading } = useAuth();  
     const [role, roleLoading] = useRole(); 
     
@@ -14,7 +14,7 @@ const AdminRoute = () => {
  
     if (user && role === 'admin') return children;
  
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
 };
 
 AdminRoute.propTypes = {

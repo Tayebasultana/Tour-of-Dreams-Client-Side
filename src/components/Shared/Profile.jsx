@@ -32,11 +32,11 @@ const Profile = () => {
         <div className="min-h-screen flex flex-col items-center justify-center bg-[#F6FCDF] p-4">
             <div className="bg-white p-8 rounded-xl shadow-lg text-center w-full max-w-md">
                 {/* Welcome Message */}
-                <h2 className="text-3xl font-semibold text-gray-800 mb-4">Welcome, {user.displayName || "User"}!</h2>
+                <h2 className="text-3xl font-semibold text-gray-800 mb-4">Welcome, {user?.displayName || "User"}!</h2>
                 
                 {/* User Image */}
                 <img
-                    src={user.photoURL || "default-profile-pic.jpg"}
+                    src={user?.photoURL || "default-profile-pic.jpg"}
                     alt="User Profile"
                     className="w-32 h-32 rounded-full mx-auto mb-4"
                 />
@@ -46,11 +46,11 @@ const Profile = () => {
 
                 {/* User Name */}
                 <h3 className="text-2xl font-semibold text-gray-800 mb-2">
-                    {user.displayName || "No Name Provided"}
+                    {user?.displayName || "No Name Provided"}
                 </h3>
 
                 {/* User Email */}
-                <p className="text-gray-600 text-sm mb-4">{user.email || "No email provided"}</p>
+                <p className="text-gray-600 text-sm mb-4">{user?.email || "No email provided"}</p>
 
                 {/* Edit Button */}
                 <button
