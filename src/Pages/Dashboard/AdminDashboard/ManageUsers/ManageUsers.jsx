@@ -7,6 +7,8 @@ const ManageUsers = () => {
     const axiosSecure = useAxiosSecure();
     const [searchTerm, setSearchTerm] = useState(""); 
     const [roleFilter, setRoleFilter] = useState(""); 
+    const [currentPage, setCurrentPage] = useState(1); 
+    const usersPerPage = 10;  
 
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
@@ -17,34 +19,28 @@ const ManageUsers = () => {
     });
 
     const roleOptions = [
-        // { value: '', label: 'All Roles' },
         { value: 'tourist', label: 'Tourist' },
         { value: 'tourGuide', label: 'TourGuide' },
         { value: 'admin', label: 'Admin' },
     ];
 
-    // const handleMakeAdmin = user => {
-    //     axiosSecure.patch(`/users/admin/${user._id}`)
-    //         .then(res => {
-    //             if (res.data.modifiedCount > 0) {
-    //                 refetch();
-    //                 Swal.fire({
-    //                     position: "top-end",
-    //                     icon: "success",
-    //                     title: `${user.name} is now an Admin!`,
-    //                     showConfirmButton: false,
-    //                     timer: 1500
-    //                 });
-    //             }
-    //         })
-    // };
-
     const filteredUsers = users.filter(user => {
         const matchesSearchTerm = user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                  user.email.toLowerCase().includes(searchTerm.toLowerCase());
+              user.email.toLowerCase().includes(searchTerm.toLowerCase());
         const matchesRole = roleFilter ? user.role === roleFilter.value : true;
         return matchesSearchTerm && matchesRole;
     });
+
+    // Paginate filtered users
+    const indexOfLastUser = currentPage * usersPerPage;
+    const indexOfFirstUser = indexOfLastUser - usersPerPage;
+    const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    // Total pages
+    const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
 
     return (
         <div>
@@ -54,7 +50,6 @@ const ManageUsers = () => {
             </div>
 
             <div className="flex justify-between mb-4">
-                
                 <input
                     type="text"
                     placeholder="Search by Name or Email"
@@ -62,7 +57,6 @@ const ManageUsers = () => {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                
                 
                 <Select
                     options={roleOptions}
@@ -74,7 +68,6 @@ const ManageUsers = () => {
 
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
-                    {/* head */}
                     <thead>
                         <tr>
                             <th></th>
@@ -82,24 +75,41 @@ const ManageUsers = () => {
                             <th>Email</th>
                             <th>Role</th>
                             <th>Status</th>
-                            
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            filteredUsers.map((user, index) => (
-                                <tr key={user._id}>
-                                    <th>{index + 1}</th>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.role}</td>
-                                    <td>{user.status}</td>
-                                    
-                                </tr>
-                            ))
-                        }
+                        {currentUsers.map((user, index) => (
+                            <tr key={user._id}>
+                                <th>{index + 1}</th>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.role}</td>
+                                <td>{user.status}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
+            </div>
+
+            {/* Pagination controls */}
+            <div className="flex justify-center my-7 ">
+                <button 
+                    className="btn bg-[#859f3d] mr-2" 
+                    disabled={currentPage === 1} 
+                    onClick={() => paginate(currentPage - 1)}
+                >
+                    Previous
+                </button>
+
+                <span className="my-auto">{`Page ${currentPage} of ${totalPages}`}</span>
+
+                <button 
+                    className="btn bg-[#859f3d] ml-2" 
+                    disabled={currentPage === totalPages} 
+                    onClick={() => paginate(currentPage + 1)}
+                >
+                    Next
+                </button>
             </div>
         </div>
     );
