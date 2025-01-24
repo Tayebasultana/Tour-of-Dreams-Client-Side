@@ -47,7 +47,7 @@ const TouristStory = () => {
         <div className='w-11/12 mx-auto text-center'>
             <h2 className='text-4xl mb-7'>Random Stories</h2>
             
-            <div className="stories-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="stories-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 grid-items-center">
                 {randomStories.map((story) => (
                     <div key={story._id} className="card bg-base-100 w-96 shadow-xl">
                         <figure>
