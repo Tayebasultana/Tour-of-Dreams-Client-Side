@@ -103,7 +103,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                 ) : (
-                    <NavLink to="/login" className="btn px-7 font-bold bg-transparent">
+                    <NavLink to="/login" className="btn px-7 font-bold bg-[#f6fcdf] rounded-md hover:bg-[#bdcd90] text-black">
                         Log In
                     </NavLink>
                 )}
