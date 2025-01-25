@@ -140,6 +140,8 @@ const BookingForm = () => {
             selected={tourDate}
             onChange={(date) => setTourDate(date)}
             dateFormat="MMMM d, yyyy"
+            // disabled past dates
+            minDate={new Date()}
             className="w-full p-3 rounded-lg border border-gray-300 bg-gray-100 text-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-500"
             required
           />
