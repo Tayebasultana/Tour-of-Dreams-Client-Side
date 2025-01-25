@@ -40,13 +40,13 @@ const StoryCard = () => {
     }
 
     return (
-        <div className="flex flex-wrap gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             
             {stories.map((story, index) => {
                 const { name, category, activities, imageURL, _id } = story;  
 
                 return (
-                    <div key={index} className="card bg-base-100 w-96 shadow-xl">
+                    <div key={index} className="card bg-base-100 shadow-xl">
                         <figure>
                             <img
                                 src={imageURL || "default-image-url"}  

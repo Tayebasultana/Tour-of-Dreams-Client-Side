@@ -1,4 +1,4 @@
-import {FaEnvelope, FaHistory, FaHome, FaSearch, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaEnvelope, FaHistory, FaHome, FaSearch, FaUsers, FaUtensils } from "react-icons/fa";
 import { MdManageAccounts, MdOutlinePostAdd } from "react-icons/md";
 import { SiStorybook } from "react-icons/si";
 import { RiAddLargeLine } from "react-icons/ri";
@@ -17,196 +17,295 @@ const Dashboard = () => {
     const axiosSecure = useAxiosSecure();
     const [role, isLoading] = useRole();
 
-    // const handleJoinAsTourGuide = async () => {
-    //     Swal.fire({
-    //         title: "Are you sure you want to become a tour guide?",
-    //         text: "You won't be able to revert this!",
-    //         icon: "warning",
-    //         showCancelButton: true,
-    //         confirmButtonColor: "#3085d6",
-    //         cancelButtonColor: "#d33",
-    //         confirmButtonText: "Yes, I want to be a tour guide!"
-    //     }).then(async (result) => {
-    //         if (result.isConfirmed) {
-    //             // Action if confirmed
-    //             Swal.fire({
-    //                 title: "Congratulations!",
-    //                 text: "Your request is sent successfully.",
-    //                 icon: "success"
-    //             });
-    
-    //             try {
-    //                 const {data} = await axiosSecure.patch(`/users/${user?.email}`)
-    //                 console.log(data)
-    //             } catch (error) {
-    //                 console.error('Error in sending request', error);
-    //                 Swal.fire({
-    //                     title: 'Error!',
-    //                     text: error?.response?.data?.message || error.message || 'There was an error. Please try again.',
-    //                     icon: 'error'
-    //                 });
-    //             }
-    //         }
-    //     });
-    // };
-    
-
-
     return (
         <div className="flex">
-            {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-[#859F3D] ">
-                <ul className="menu p-4">
-                    
-                {
-  role === 'tourist' && (
-    <>
-      <li>
-        <NavLink to="/dashboard/userProfile">
-          <FaUser />
-          Manage profile
-        </NavLink>
-      </li>
-      <li>
-      <NavLink to={`/dashboard/bookings/${user?.email}`}>
-      <TbBrandBooking />
-          My Bookings
-      </NavLink>
-      </li>
-      <li>
-      <NavLink to={`/dashboard/payments/${user.email}`}>
-      <FaHistory />
-          My Payment History
-      </NavLink>
-      </li>
-      <li>
-        <NavLink to={`/dashboard/stories/${user?.email}`}>
-          <TbBrandStorybook />
-          Manage Stories
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/addStory">
-        <RiAddLargeLine />
-          Add Stories
-        </NavLink>
-      </li>
-      <li>
-        {/* <button onClick={handleJoinAsTourGuide} className="your-button-class">
-          <FaUsers /> Join as tour guide
-        </button> */}
-        <NavLink to="/dashboard/joinAsTourGuide">
-        Join As Tour Guide 
-        </NavLink>
-      </li>
-    </>
-  )
-}
+          {/* Sidebar for large screens (left side) */}
+          <div className="lg:block hidden w-80 bg-[#859f3d] p-4">
+                <ul className="menu text-base-content min-h-full">
+                    {/* Sidebar content based on user role */}
+                    {role === 'tourist' && (
+                        <>
+                            <li>
+                                <NavLink to="/dashboard/userProfile">
+                                    <FaUser />
+                                    Manage profile
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={`/dashboard/bookings/${user?.email}`}>
+                                    <TbBrandBooking />
+                                    My Bookings
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={`/dashboard/payments/${user.email}`}>
+                                    <FaHistory />
+                                    My Payment History
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={`/dashboard/stories/${user?.email}`}>
+                                    <TbBrandStorybook />
+                                    Manage Stories
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/addStory">
+                                    <RiAddLargeLine />
+                                    Add Stories
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/joinAsTourGuide">
+                                    Join As Tour Guide
+                                </NavLink>
+                            </li>
+                        </>
+                    )}
+                    {role === 'tourGuide' && (
+                        <>
+                            <li>
+                                <NavLink to="/dashboard/tourGuideProfile">
+                                    <FaUser />
+                                    Manage profile
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/my-assigned-tour">
+                                    <FaCalendar />
+                                    My Assigned Tours
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/addStory">
+                                    <RiAddLargeLine />
+                                    Add Stories
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={`/dashboard/stories/${user?.email}`}>
+                                    <TbBrandStorybook />
+                                    Manage Stories
+                                </NavLink>
+                            </li>
+                        </>
+                    )}
+                    {role === 'admin' && (
+                        <>
+                            <li>
+                                <NavLink to="/dashboard/adminProfile">
+                                    <FaUser />
+                                    Manage profile
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/addStory">
+                                    <RiAddLargeLine />
+                                    Add Stories
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to={`/dashboard/stories/${user?.email}`}>
+                                    <SiStorybook />
+                                    Manage Stories
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/packageForm">
+                                    <MdOutlinePostAdd />
+                                    Add Package
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/users">
+                                    <MdManageAccounts />
+                                    Manage Users
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/manageCandidates">
+                                    <SiAwssecretsmanager />
+                                    Manage Candidates
+                                </NavLink>
+                            </li>
+                        </>
+                    )}
 
-{
-  role === 'tourGuide' && (
-    <>
-      <li>
-        <NavLink to="/dashboard/tourGuideProfile">
-          <FaUser />
-          Manage profile
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/my-assigned-tour">
-          <FaCalendar />
-          My Assigned Tours
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/addStory">
-        <RiAddLargeLine />
-          Add Stories
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to={`/dashboard/stories/${user?.email}`}>
-          <TbBrandStorybook />
-          Manage Stories
-        </NavLink>
-      </li>
-    </>
-  )
-}
-
-{
-  role === 'admin' && (
-    <>
-      <li>
-        <NavLink to="/dashboard/adminProfile">
-          <FaUser />
-          Manage profile
-        </NavLink>
-      </li>
-      {/* <li>
-        <NavLink to="/dashboard/paymentHistory">
-          <FaList />
-          My Assigned Tours
-        </NavLink>
-      </li> */}
-      <li>
-        <NavLink to="/dashboard/addStory">
-        <RiAddLargeLine />
-          Add Stories
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to={`/dashboard/stories/${user?.email}`}>
-        <SiStorybook />
-          Manage Stories
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/packageForm">
-        <MdOutlinePostAdd />
-          Add Package
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/users">
-        <MdManageAccounts />
-          Manage Users
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/dashboard/manageCandidates">
-        <SiAwssecretsmanager />
-          Manage Candidates
-        </NavLink>
-      </li>
-    </>
-  )
-}
-
-                        
-                    {/* shared nav links */}
+                    {/* Shared nav links */}
                     <div className="divider"></div>
                     <li>
                         <NavLink to="/">
-                            <FaHome></FaHome>
-                            Home</NavLink>
+                            <FaHome />
+                            Home
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink to="/all-package">
-                        <BiTrip />
-                            Trips</NavLink>
+                            <BiTrip />
+                            Trips
+                        </NavLink>
                     </li>
                     <li>
                         <NavLink to="/community">
-                        <FaRegObjectUngroup />
-                            Community</NavLink>
+                            <FaRegObjectUngroup />
+                            Community
+                        </NavLink>
                     </li>
                 </ul>
+          </div>
+
+            {/* Drawer for small and medium screens */}
+            <div className="drawer drawer-mobile">
+                <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content">
+                    {/* Button to open the drawer for small and medium screens */}
+                    <label htmlFor="my-drawer" className="btn bg-[#859f3d] drawer-button lg:hidden">
+                        Open Sidebar
+                    </label>
+
+                    {/* Main dashboard content */}
+                    <div className="flex-1 p-8">
+                        <Outlet></Outlet>
+                    </div>
+                </div>
+
+                {/* Sidebar content (this will be shown for mobile and tablet) */}
+                <div className="drawer-side">
+                    <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
+                    <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+                        {/* Sidebar content based on user role */}
+                        {role === 'tourist' && (
+                            <>
+                                <li>
+                                    <NavLink to="/dashboard/userProfile">
+                                        <FaUser />
+                                        Manage profile
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={`/dashboard/bookings/${user?.email}`}>
+                                        <TbBrandBooking />
+                                        My Bookings
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={`/dashboard/payments/${user.email}`}>
+                                        <FaHistory />
+                                        My Payment History
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={`/dashboard/stories/${user?.email}`}>
+                                        <TbBrandStorybook />
+                                        Manage Stories
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/addStory">
+                                        <RiAddLargeLine />
+                                        Add Stories
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/joinAsTourGuide">
+                                        Join As Tour Guide
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
+                        {role === 'tourGuide' && (
+                            <>
+                                <li>
+                                    <NavLink to="/dashboard/tourGuideProfile">
+                                        <FaUser />
+                                        Manage profile
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/my-assigned-tour">
+                                        <FaCalendar />
+                                        My Assigned Tours
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/addStory">
+                                        <RiAddLargeLine />
+                                        Add Stories
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={`/dashboard/stories/${user?.email}`}>
+                                        <TbBrandStorybook />
+                                        Manage Stories
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
+                        {role === 'admin' && (
+                            <>
+                                <li>
+                                    <NavLink to="/dashboard/adminProfile">
+                                        <FaUser />
+                                        Manage profile
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/addStory">
+                                        <RiAddLargeLine />
+                                        Add Stories
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={`/dashboard/stories/${user?.email}`}>
+                                        <SiStorybook />
+                                        Manage Stories
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/packageForm">
+                                        <MdOutlinePostAdd />
+                                        Add Package
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/users">
+                                        <MdManageAccounts />
+                                        Manage Users
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/dashboard/manageCandidates">
+                                        <SiAwssecretsmanager />
+                                        Manage Candidates
+                                    </NavLink>
+                                </li>
+                            </>
+                        )}
+
+                        {/* Shared nav links */}
+                        <div className="divider"></div>
+                        <li>
+                            <NavLink to="/">
+                                <FaHome />
+                                Home
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/all-package">
+                                <BiTrip />
+                                Trips
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/community">
+                                <FaRegObjectUngroup />
+                                Community
+                            </NavLink>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            {/* dashboard content */}
-            <div className=" p-8">
-                <Outlet></Outlet>
-            </div>
+
         </div>
     );
 };
