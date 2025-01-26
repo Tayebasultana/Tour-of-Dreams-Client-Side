@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { authContext } from "../../components/AuthProvider/AuthProvider";
 // import loginImg from "../../assets/3094352.jpg";
 import backgroundImg from "../../assets/abstract-blue-geometric-shapes-background.jpg";
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+// import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
@@ -17,9 +17,9 @@ const Login = () => {
   const navigate = useNavigate();
   const axiosPublic = useAxiosPublic();
 
-  useEffect(() => {
-    loadCaptchaEnginge(6); 
-  }, []);
+  // useEffect(() => {
+  //   loadCaptchaEnginge(6); 
+  // }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -108,16 +108,16 @@ const Login = () => {
                 />
               </label>
 
-              <label className="block text-black">
+              {/* <label className="block text-black">
               <LoadCanvasTemplate />
                 <input
                   type="text"
                   name="captcha"
                   className="w-full px-4 py-2 rounded-md border border-gray-300 shadow-sm focus:ring focus:ring-yellow-500 focus:outline-none"
                   placeholder="Type the captcha above"
-                  // required
+                  required
                 />
-              </label>
+              </label> */}
 
               <div className="text-right">
                 <NavLink

@@ -119,7 +119,7 @@ const handleSubmit = async (e) => {
                           <button type="submit" className="btn w-full text-black text-bold text-lg bg-yellow-500">Register</button>
                       </div>
                   </form>
-                  <span className="text-white">Already have an account? </span>
+                  <span className="text-black">Already have an account? </span>
                   <NavLink to="/login" className="text-base text-yellow-500 font-bold">Login</NavLink>
                   {error && <p className="mt-2 text-red-500">{error}</p>}
               </div>
