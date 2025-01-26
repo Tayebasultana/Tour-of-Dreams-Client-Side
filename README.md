@@ -1,8 +1,99 @@
-# React + Vite
+# TOUR OF DREAMS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+The **TOUR OF DREAMS** site is an online platform for travelers, offering comprehensive information on popular destinations in Bangladesh. It aims to help tourists plan their trips by providing detailed descriptions of tourist attractions, local culture, cuisine, and activities. The site features several user-centric functionalities, including tour bookings, profile management, and tour guide selection.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Whether you're a tourist looking for your next adventure, a tour guide eager to share your expertise, or an admin managing the system, **Tourist Guide** has something for everyone.
+
+## Key Features
+
+- **Authentication System:**
+  - Users can register, login, and logout.
+  - Users can log in with Google.
+  - JWT authentication with token storage in LocalStorage.
+  
+- **User Roles:**
+  - **Normal User/Tourist**: View and book tours, manage profiles, and add stories.
+  - **Tour Guide**: Manage assigned tours, create/manage stories, and edit profiles.
+  - **Admin**: Add and manage packages, users, tour guides, and stories.
+
+- **HomePage Features:**
+  - Banner/Slider Section
+  - Tourism and Travel Guide Section (Our Packages and Meet Our Tour Guides tabs)
+  - Tourist Story Section
+  - Search functionality for random packages
+
+- **Package Details Page:**
+  - Tour gallery and itinerary information
+  - List of assigned tour guides
+  - Booking form with booking status
+
+- **Community Page:**
+  - View all stories added by users
+  - Share stories using react-share
+
+- **Responsive Design:**
+  - Fully responsive across mobile, tablet, and desktop.
+  - Dashboard pages for tourists, tour guides, and admins are also responsive.
+
+- **Admin Dashboard:**
+  - Manage users, candidates, and stories.
+  - View stats like total payments, total clients, total tour guides, and total packages.
+
+- **Tour Guide Dashboard:**
+  - Manage assigned tours, accept/reject bookings, and manage stories.
+
+- **Tourist Dashboard:**
+  - Manage profile, bookings, stories, and apply to become a tour guide.
+
+
+## Technologies Used
+
+- **Frontend**: 
+  - React
+  - Tailwind CSS
+  - React Router
+  - React-DatePicker
+  - React-Toastify for sweet alerts/notifications
+  - React Query (TanStack Query) for data fetching
+  
+- **Backend**: 
+  - Node.js
+  - Express.js
+  - MongoDB
+  - JWT for authentication
+  
+- **Other Libraries/Tools**:
+  - React Confetti (for congratulations animation after 3 bookings)
+  - Framer Motion for animations
+  - react-share (for sharing stories on social media)
+
+## Live Site URL
+
+[TOUR OF DREAMS - Live Demo](https://tour-of-dreams.web.app)
+
+## Features of the Website
+
+1. User-friendly interface for tourists and tour guides.
+2. Dynamic, real-time content for packages and tour guides.
+3. Ability for users to book tours and manage their bookings.
+4. Tour guides can manage their assigned tours and profile.
+5. Admin dashboard for managing all aspects of the platform.
+6. Real-time notifications and sweet alerts for user interactions.
+7. Profile management with the ability to upload images.
+8. Secure authentication using JWT and Google login.
+9. Integrated story-sharing feature with social media sharing options.
+10. Payment integration (Stripe) for booking confirmation.
+
+---
+
+### Special Notes:
+
+- The website is designed to be **mobile-friendly** and responsive for all devices (mobile, tablet, desktop).
+- **JWT Authentication** ensures secure login and protected routes.
+- The system utilizes **TanStack Query** for efficient and optimized data fetching.
+
+---
+
+Enjoy building and exploring the **TOUR OF DREAMS** platform! 😊
