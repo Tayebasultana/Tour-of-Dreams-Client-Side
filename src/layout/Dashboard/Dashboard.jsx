@@ -159,7 +159,7 @@ const Dashboard = () => {
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     {/* Button to open the drawer for small and medium screens */}
-                    <label htmlFor="my-drawer" className="btn bg-[#859f3d] drawer-button lg:hidden">
+                    <label htmlFor="my-drawer" className="btn bg-[#859f3d] drawer-button lg:hidden fixed top-0 left-0 z-5">
                         Open Sidebar
                     </label>
 
