@@ -88,6 +88,21 @@ Whether you're a tourist looking for your next adventure, a tour guide eager to 
 
 ---
 
+# Follow these steps to run the project locally on your machine:
+1. **Clone or Download the Project**:  
+   - You either clone the repository using `git clone` or download the ZIP file and extract it.
+   
+2. **Install Node.js**:  
+   - If the project uses **Node.js**, this step ensures you have Node.js installed on your local system. It's important for running JavaScript code outside the browser.
+
+3. **Install Project Dependencies**:  
+   - This step installs all necessary libraries or dependencies the project requires, which are listed in `package.json`.
+
+4. **Run the Project**:  
+   - This is the step where you start the application. Once you run the `npm run dev` command, the application will start a local development server.
+
+You can also modify the guide based on your project's specific needs, such as changing commands or adding more setup steps if required.
+
 ### Special Notes:
 
 - The website is designed to be **mobile-friendly** and responsive for all devices (mobile, tablet, desktop).
