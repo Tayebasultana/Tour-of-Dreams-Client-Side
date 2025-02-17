@@ -25,42 +25,41 @@ const Navbar = () => {
     return (
         <div className="navbar flex fixed z-10 bg-opacity-30 items-center justify-between bg-black text-white px-2 md:px-7 lg:px-16 py-3">
             {/* Logo Section */}
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 items-center navbar-start">
                 <div className="flex gap-2 items-center">
                     <img src={tour} alt="" className="w-10"/>
                     <h3 className="text-2xl font-bold text-white">TOUR OF DREAMS</h3>
                 </div>
-
-                {/* Hamburger menu for small screens */}
-                <div className="dropdown md:hidden">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h16M4 18h7" />
-                        </svg>
-                    </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-black">
-                        <li><NavLink to="/" className={({ isActive }) => isActive ? "text-black" : ""}>Home</NavLink></li>
-                        <li><NavLink to="/community" className={({ isActive }) => isActive ? "text-black" : ""}>Community</NavLink></li>
-                        <li><NavLink to="/about-us" className={({ isActive }) => isActive ? "text-black" : ""}>About Us</NavLink></li>
-                        <li><NavLink to="/all-package" className={({ isActive }) => isActive ? "text-black" : ""}>Trips</NavLink></li>
-                    </ul>
-                </div>
             </div>
 
             {/* Navigation Links */}
-            <div className="hidden md:flex">
+            <div className="hidden md:flex navbar-center">
                 <ul className="flex gap-4">
+                    <li><NavLink to="/" className={({ isActive }) => isActive ? "text-black" : ""}>Home</NavLink></li>
+                    <li><NavLink to="/community" className={({ isActive }) => isActive ? "text-black" : ""}>Community</NavLink></li>
+                    <li><NavLink to="/about-us" className={({ isActive }) => isActive ? "text-black" : ""}>About Us</NavLink></li>
+                    <li><NavLink to="/all-package" className={({ isActive }) => isActive ? "text-black" : ""}>Trips</NavLink></li>
+                </ul>
+            </div>
+            {/* Hamburger menu for small screens */}
+            <div className="dropdown md:hidden">
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </div>
+                <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 p-2 shadow text-black">
                     <li><NavLink to="/" className={({ isActive }) => isActive ? "text-black" : ""}>Home</NavLink></li>
                     <li><NavLink to="/community" className={({ isActive }) => isActive ? "text-black" : ""}>Community</NavLink></li>
                     <li><NavLink to="/about-us" className={({ isActive }) => isActive ? "text-black" : ""}>About Us</NavLink></li>
