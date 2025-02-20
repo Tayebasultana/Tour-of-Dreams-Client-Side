@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* body */
+body {
+    background-color: #ffffff;
+    color: rgb(146, 146, 146);
+  }
+  body p{
+      color: rgb(146, 146, 146);
+  }
+  body h2{
+      color: #121212;
+  }
+  body.dark h2{
+    color: #859f3d;
+ }
+  body.dark {
+      background-color: #424d23; 
+      color: #ffffff;
+  }

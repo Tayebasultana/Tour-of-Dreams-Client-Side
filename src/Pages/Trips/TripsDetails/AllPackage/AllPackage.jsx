@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const AllPackage = () => {
     const [packages, setPackages] = useState([]);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
 
     // Fetch random packages when the component mounts
     useEffect(() => {
@@ -13,7 +14,9 @@ const AllPackage = () => {
             try {
                 const response = await axios.get('https://tour-of-dreams-server-side.vercel.app/packages');
                 setPackages(response.data); 
+                setLoading(false);
             } catch (error) {
+                setLoading(false);
                 console.error('Error fetching packages:', error);
             }
         };
@@ -26,11 +29,16 @@ const AllPackage = () => {
     };
 
     return (
-        <div className="text-center py-20 w-11/12 mx-auto">
+        <div className="text-center py-20 w-11/12 mx-auto min-h-screen">
             <h2 className="text-3xl">All Travel Packages</h2>
+            {/* Loading Spinner */}
+            {loading && (
+              <div id="loadingSpinner" className="loading mt-7">
+                <div className="spinner"></div> 
+              </div>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-4">
-                {packages.length > 0 ? (
-                    packages.map((packageData) => (
+                {packages.map((packageData) => (
                         <div key={packageData._id} className="bg-[#F6FCDF] rounded-xl">
                             <img
                                 src={ packageData.images[0]}
@@ -44,10 +52,7 @@ const AllPackage = () => {
                                 View Details
                             </button>
                         </div>
-                    ))
-                ) : (
-                    <p>Loading packages...</p>
-                )}
+                    ))}
             </div>
         </div>
     );

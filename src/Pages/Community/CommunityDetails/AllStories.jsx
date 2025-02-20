@@ -23,10 +23,6 @@ const AllStories = () => {
                 });
     }, [axiosPublic]);
 
-    if (loading) {
-        return <div>Loading stories...</div>;
-    }
-
     const indexOfLastStory = currentPage * storiesPerPage;
     const indexOfFirstStory = indexOfLastStory - storiesPerPage;
     const currentStories = stories.slice(indexOfFirstStory, indexOfLastStory);
@@ -35,8 +31,14 @@ const AllStories = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className="w-11/12 mx-auto py-20">
+        <div className="w-11/12 mx-auto py-20 text-center min-h-screen">
             <h3 className="text-3xl mb-4 text-center">All Tour Packages</h3>
+            {/* Loading Spinner */}
+            {loading && (
+              <div id="loadingSpinner" className="loading">
+                <div className="spinner"></div> 
+              </div>
+            )}
            <div className="stories-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Stories Mapping */}
                 {currentStories.map((story) => (

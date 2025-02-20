@@ -1,13 +1,22 @@
 import { FaCartShopping } from "react-icons/fa6";
 import { Link, NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import tour from "../../assets/travel.png"
 import { authContext } from "../AuthProvider/AuthProvider";
 import useRole from "../../hooks/useRole";
+import { BsMoonStarsFill } from "react-icons/bs";
+import { MdSunny } from "react-icons/md";
 
 const Navbar = () => {
     const { user, handleLogout } = useContext(authContext);
     const [role, isRoleLoading] = useRole(); 
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    // Function to toggle theme
+    const toggleTheme = () => {
+      setIsDarkMode(!isDarkMode);
+      document.body.classList.toggle("dark", !isDarkMode);
+    };
 
     // Function to handle profile redirection based on role
     const getDashboardLink = () => {
@@ -23,7 +32,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="navbar flex fixed z-10 bg-opacity-30 items-center justify-between bg-black text-white px-2 md:px-7 lg:px-16 py-3">
+        <div className="navbar flex fixed z-10 bg-opacity-30 items-center justify-between bg-black  text-white px-2 md:px-7 lg:px-16 py-3">
             {/* Logo Section */}
             <div className="flex gap-4 items-center navbar-start">
                 <div className="flex gap-2 items-center">
@@ -68,6 +77,13 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-end">
+                {/* dark/ light mode */}
+                <div className="mr-4">
+                  <button onClick={toggleTheme} className="">
+                    {isDarkMode ? <BsMoonStarsFill /> : <MdSunny />}
+                  </button>
+                </div>
+                {/* user profile and dashboard routing */}
                 {user?.email ? (
                     <div className="dropdown dropdown-end text-black">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

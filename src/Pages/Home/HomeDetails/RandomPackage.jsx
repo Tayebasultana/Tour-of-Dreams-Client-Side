@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const RandomPackage = () => {
     const [randomPackages, setRandomPackages] = useState([]);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
 
     // Fetch all packages when the component mounts
     useEffect(() => {
@@ -20,7 +21,9 @@ const RandomPackage = () => {
                 };
 
                 setRandomPackages(getRandomPackages()); // Set the random 3 packages
+                setLoading(false);
             } catch (error) {
+                setLoading(false);
                 console.error('Error fetching packages:', error);
             }
         };
@@ -35,8 +38,14 @@ const RandomPackage = () => {
     return (
         <div className="text-center py-10 w-11/12 mx-auto">
             <h2 className="text-4xl mb-7">Travel Packages</h2>
+            {/* Loading Spinner */}
+            {loading && (
+              <div id="loadingSpinner" className="loading">
+                <div className="spinner"></div> 
+              </div>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-4">
-                {randomPackages.length > 0 ? (
+                {
                     randomPackages.map((packageData) => (
                         <div key={packageData._id} className="bg-[#F6FCDF] rounded-xl">
                             <img
@@ -55,9 +64,7 @@ const RandomPackage = () => {
                             </button>
                         </div>
                     ))
-                ) : (
-                    <p>Loading packages...</p>
-                )}
+                }
             </div>
         </div>
     );

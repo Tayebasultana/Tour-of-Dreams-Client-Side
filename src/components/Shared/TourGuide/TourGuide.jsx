@@ -20,20 +20,19 @@ const TourGuide = () => {
       });
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   const handleGoToGuideProfile = (id) => {
     navigate(`/tourGuides/${id}`)
   }
 
     return (
-        <div className='my-10 '>
-            <h2 className='text-4xl font-bold text-center mb-4'>Tour Guides</h2>
-            {tourGuides.length === 0 ? (
-        <p>No tour guides found.</p>
-      ) : (
+        <div className='my-10 text-center'>
+            <h2 className='text-4xl text-center mb-7'>Tour Guides</h2>
+            {/* Loading Spinner */}
+            {loading && (
+              <div id="loadingSpinner" className="loading">
+                <div className="spinner"></div> 
+              </div>
+            )}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {tourGuides.map((guide) => (
             <div key={guide._id} className="bg-white p-8 rounded-xl shadow-lg text-center w-full max-w-md">
@@ -52,8 +51,7 @@ const TourGuide = () => {
             </div>
           ))}
         </div>
-      )}
-        </div>
+      </div>
     );
 };
 
