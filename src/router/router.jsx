@@ -29,6 +29,7 @@ import UpdateProfile from "../components/Shared/UpdateProfile/UpdateProfile";
 import GuideRoute from "./GuideRoute";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivetRoute";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 
 
@@ -36,6 +37,7 @@ import PrivateRoute from "./PrivetRoute";
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement:<ErrorPage></ErrorPage>,
       children: [
         {
             path:"/",
