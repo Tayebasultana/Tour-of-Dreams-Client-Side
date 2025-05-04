@@ -5,9 +5,9 @@ import TourGuide from "../../../components/Shared/TourGuide/TourGuide";
 
 const PackageAndGuide = () => {
     return (
-        <div>
+        <div className="min-h-screen">
             <Tabs>
-               <TabList className="items-center justify-center  p-4 rounded-lg shadow-md gap-7 flex">
+               <TabList className="bg-[#F6FCDF] items-center justify-center  p-4 rounded-lg shadow-md gap-7 flex">
                  <Tab
                  className="px-4 py-2 cursor-pointer text-lg font-semibold  transition-all duration-300"
                  selectedClassName="border-b-4 text-[#859F3D] border-[#859F3D]">Our Packages</Tab>
