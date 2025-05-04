@@ -20,7 +20,7 @@ const Dashboard = () => {
     return (
         <div className="flex">
           {/* Sidebar for large screens (left side) */}
-          <div className="lg:block hidden w-80 bg-[#859f3d] p-4">
+          <div className="lg:block hidden w-80 bg-[#859f3d] p-4 min-h-screen">
                 <ul className="menu text-base-content min-h-full">
                     {/* Sidebar content based on user role */}
                     {role === 'tourist' && (
