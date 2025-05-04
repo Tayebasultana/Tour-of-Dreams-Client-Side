@@ -3,8 +3,9 @@ import profileLogo from "../../../assets/Screenshot 2024-09-30 064856.png";
 
 const AboutUs = () => {
     return (
-        <div className="max-w-screen-lg mx-auto px-4 py-20 bg-purple-300">
-            <h1 className="text-3xl font-bold text-center mb-6">About Me</h1>
+        <div className="bg-[#859F3D]">
+            <div className="max-w-screen-lg mx-auto px-4 py-20">
+            <h1 className="text-3xl font-bold text-center mb-6 text-gray-900">About Me</h1>
 
             {/* Developer Introduction */}
             <div className="text-center mb-6">
@@ -13,16 +14,16 @@ const AboutUs = () => {
                     alt="Developer" 
                     className="rounded-full mx-auto mb-4" 
                 />
-                <p className='text-xl'>I am</p>
+                <p className='text-xl text-gray-900'>I am</p>
                 <h2 className="text-2xl font-semibold">Tayeba Sultana</h2>
-                <p className="text-gray-600">Aspiring Web Developer</p>
-                <p className="mt-4 text-lg">I am an aspiring web developer with a passion for building functional and user-friendly web applications. I have been learning web development for the past 8-9 months, and I am focused on improving my skills in HTML, CSS, JavaScript, React, Node.js, MongoDB, and Tailwind CSS. I am always eager to take on new challenges and learn from each project I work on.</p>
+                <p className="text-gray-800">Aspiring Web Developer</p>
+                <p className="mt-4 text-lg text-gray-900">I am an aspiring web developer with a passion for building functional and user-friendly web applications. I have been learning web development for the past 8-9 months, and I am focused on improving my skills in HTML, CSS, JavaScript, React, Node.js, MongoDB, and Tailwind CSS. I am always eager to take on new challenges and learn from each project I work on.</p>
             </div>
 
             {/* Projects Count */}
             <div className="text-center mb-6">
-                <h3 className="text-xl font-semibold">My Journey</h3>
-                <p className="text-gray-600">I have worked on several projects so far, including web applications, and I am excited to continue learning and growing as a developer. Here are a few of the projects I have worked on:</p>
+                <h3 className="text-xl font-semibold text-gray-900">My Journey</h3>
+                <p className="text-gray-800">I have worked on several projects so far, including web applications, and I am excited to continue learning and growing as a developer. Here are a few of the projects I have worked on:</p>
             </div>
 
             {/* Projects List */}
@@ -48,14 +49,15 @@ const AboutUs = () => {
 
             {/* Contact Information */}
             <div className="text-center mt-10">
-                <h3 className="text-xl font-semibold">Contact Me</h3>
-                <p className="text-gray-600 mt-4">Feel free to reach out to me via email or connect with me on LinkedIn. I'm open to learning opportunities and collaborations.</p>
+                <h3 className="text-xl font-semibold text-gray-900">Contact Me</h3>
+                <p className="text-gray-800 mt-4">Feel free to reach out to me via email or connect with me on LinkedIn. I'm open to learning opportunities and collaborations.</p>
                 <div className="mt-4">
-                    <a href="tayebasultana743@gmail.com" className="text-blue-500">tayebasultana743@gmail.com</a>
+                    <a href="tayebasultana743@gmail.com" className="text-blue-900">tayebasultana743@gmail.com</a>
                     <br />
-                    <a href="https://www.linkedin.com/in/tayeba-sultana" target="_blank" rel="noopener noreferrer" className="text-blue-500">LinkedIn Profile</a>
+                    <a href="https://www.linkedin.com/in/tayeba-sultana" target="_blank" rel="noopener noreferrer" className="text-blue-900">LinkedIn Profile</a>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
