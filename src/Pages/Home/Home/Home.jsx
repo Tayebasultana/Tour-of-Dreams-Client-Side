@@ -1,4 +1,5 @@
 import Banner from "../HomeDetails/Banner";
+import Benifit from "../HomeDetails/Benifit";
 import Deals from "../HomeDetails/Deals";
 import OverView from "../HomeDetails/OverView";
 import PackageAndGuide from "../HomeDetails/PackageAndGuide";
@@ -12,6 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <OverView></OverView>
             <PackageAndGuide></PackageAndGuide>
+            <Benifit></Benifit>
             <TouristStory></TouristStory>
             <Deals></Deals>
             <Testimonial></Testimonial>
