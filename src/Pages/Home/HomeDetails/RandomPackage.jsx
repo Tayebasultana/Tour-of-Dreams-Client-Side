@@ -44,7 +44,7 @@ const RandomPackage = () => {
                 <div className="spinner"></div> 
               </div>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 pt-4">
                 {
                     randomPackages.map((packageData) => (
                         <div key={packageData._id} className="bg-[#F6FCDF] rounded-xl">
@@ -58,7 +58,7 @@ const RandomPackage = () => {
                             <p className="my-1"><strong>Price:</strong> {packageData.price}</p>
                             <button 
                                 onClick={() => handlePackageDetails(packageData._id)} 
-                                className="btn my-2 bg-[#859F3D]"
+                                className="btn my-2 bg-[#859F3D] justify-end mb-4"
                             >
                                 View Details
                             </button>
