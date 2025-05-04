@@ -25,7 +25,7 @@ const TourGuide = () => {
   }
 
     return (
-        <div className='my-10 text-center'>
+        <div className='text-center py-10 w-11/12 mx-auto'>
             <h2 className='text-4xl text-center mb-7'>Tour Guides</h2>
             {/* Loading Spinner */}
             {loading && (
