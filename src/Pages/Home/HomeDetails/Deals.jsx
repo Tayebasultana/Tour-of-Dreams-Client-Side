@@ -22,7 +22,7 @@ const Deals = () => {
                             <h3 className="text-xl font-semibold text-[#31511E]">Cox's Bazar Package 20% OFF</h3>
                             <p className="text-gray-600">Book a 3-night, 4-day package to Cox's Bazar and enjoy a 20% discount. Relax by the world’s longest sea beach!</p>
                             <div className="flex justify-between mt-4 items-center">
-                                <button disabled className="btn bg-[#F6FCDF] text-black py-2 px-6 rounded-lg">Book Now</button>
+                                <button disabled className="text-xl font-semibold text-[#31511E]">Comming Soon</button>
                                 <div className="sale-time text-sm text-[#31511E]">Limited Time Offer</div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@ const Deals = () => {
                             <h3 className="text-xl font-semibold text-[#31511E]">Srimangal Tea Garden 15% OFF</h3>
                             <p className="text-gray-600">A serene 2-night, 3-day getaway in Srimangal’s famous tea gardens with a 15% discount.</p>
                             <div className="flex justify-between mt-4 items-center">
-                                <button disabled className="btn bg-[#F6FCDF] text-black py-2 px-6 rounded-lg">Book Now</button>
+                                <button disabled className="text-xl font-semibold text-[#31511E]">Comming Soon</button>
                                 <div className="sale-time text-sm text-[#31511E]">Limited Time Offer</div>
                             </div>
                         </div>
@@ -52,7 +52,7 @@ const Deals = () => {
                             <h3 className="text-xl font-semibold text-[#31511E]">Bandarbans 25% OFF</h3>
                             <p className="text-gray-600">Get a 25% discount for a 3-night, 4-day adventure to Bandarbans. Experience breathtaking hilltop views!</p>
                             <div className="flex justify-between mt-4 items-center">
-                                <button disabled className="btn bg-[#F6FCDF] text-black py-2 px-6 rounded-lg">Book Now</button>
+                                <button disabled className="text-xl font-semibold text-[#31511E]">Comming Soon</button>
                                 <div className="sale-time text-sm text-[#31511E]">Limited Time Offer</div>
                             </div>
                         </div>
